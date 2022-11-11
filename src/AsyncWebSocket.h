@@ -201,6 +201,7 @@ class AsyncWebSocketClient {
     //set auto-ping period in seconds. disabled if zero (default)
     void keepAlivePeriod(uint16_t seconds){
       _keepAlivePeriod = seconds * 1000;
+      _client->setRxTimeout(seconds * 3);
     }
     uint16_t keepAlivePeriod(){
       return (uint16_t)(_keepAlivePeriod / 1000);
